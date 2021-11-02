@@ -3,6 +3,9 @@ require_relative 'user'
 
 token = '2005491496:AAE2oTfCH6QiluuevYbJ7CtrLgc9JS6vmzI'
 
+require 'telegram/bot'
+require 'open-uri'
+require 'json'
 
 def fetch_user(username_recieved)
   url = "https://www.duolingo.com/2017-06-30/users?username=#{username_recieved}"
