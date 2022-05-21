@@ -33,17 +33,28 @@ GEM
     ice_nine (0.11.2)
     json (2.6.1)
     multipart-post (2.1.1)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
     open-uri (0.2.0)
       stringio
       time
       uri
+    rack (2.2.3)
+    rack-protection (2.2.0)
+      rack
     ruby2_keywords (0.0.5)
+    sinatra (2.2.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.2.0)
+      tilt (~> 2.0)
     stringio (3.0.1)
     telegram-bot-ruby (0.16.0)
       dry-inflector
       faraday
       virtus (~> 2.0)
     thread_safe (0.3.6)
+    tilt (2.0.10)
     time (0.2.0)
       date
     uri (0.11.0)
@@ -58,7 +69,8 @@ PLATFORMS
 DEPENDENCIES
   json
   open-uri
+  sinatra
   telegram-bot-ruby
 
 BUNDLED WITH
-   2.2.27
+   2.2.30
