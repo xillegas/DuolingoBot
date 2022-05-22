@@ -1,4 +1,4 @@
 require 'sinatra'
 get '/' do
-  redirect 'http://https://t.me/duo_en_es', 303
+  redirect 'http://t.me/duome_bot', 303
 end
