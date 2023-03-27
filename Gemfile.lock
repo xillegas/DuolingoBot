@@ -64,6 +64,7 @@ GEM
       descendants_tracker (~> 0.0, >= 0.0.3)
 
 PLATFORMS
+  ruby
   x86_64-linux
 
 DEPENDENCIES
