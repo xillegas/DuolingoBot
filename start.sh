@@ -1,2 +1,4 @@
-bundle exec ruby main.rb &
-ruby my_app.rb -p 8000
+gem install sinatra-contrib
+
+ruby my_app.rb &
+bundle exec ruby main.rb
