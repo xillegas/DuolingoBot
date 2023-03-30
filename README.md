@@ -1,11 +1,12 @@
 ---
-title: {{title}}
-emoji: {{emoji}}
-colorFrom: {{colorFrom}}
-colorTo: {{colorTo}}
-sdk: "docker"
-sdk_version: {{sdkVersion}}
-app_file: app.py
+title: duolingobot
+emoji: 📊
+colorFrom: purple
+colorTo: indigo
+sdk: docker
+pinned: false
+license: other
+app_file: main.rb
 pinned: false
 ---
 
