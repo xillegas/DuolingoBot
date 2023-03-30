@@ -7,7 +7,6 @@ sdk: docker
 pinned: false
 license: other
 app_file: main.rb
-pinned: false
 ---
 
 # DuolingoBot
