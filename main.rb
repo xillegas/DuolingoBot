@@ -14,6 +14,10 @@ def fetch_user(username_recieved)
   User.new(duohash['users'][0]) unless duohash['users'].empty?
 end
 
+puts "Duolingo Bot for Telegram"
+puts "Version 1.0"
+puts "Developed by Xillegas"
+
 Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
     if message.instance_of?(Telegram::Bot::Types::Message) && message.text.instance_of?(String)
