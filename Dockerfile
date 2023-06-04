@@ -11,7 +11,7 @@ COPY . .
 RUN bundle install
 
 # Exponer el puerto utilizado por la aplicación
-EXPOSE 80
+EXPOSE 4567
 
 # Ejecutar la aplicación utilizando el comando "ruby" y el archivo "bot.rb"
-CMD ["ruby", "main.rb"]
+CMD bash start.sh

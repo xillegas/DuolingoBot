@@ -20,6 +20,7 @@ puts "Developed by Xillegas"
 
 Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
+    puts "ok"
     if message.instance_of?(Telegram::Bot::Types::Message) && message.text.instance_of?(String)
       attempt = message.text.split
       if attempt[0] == '/starts'
