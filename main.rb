@@ -1,11 +1,14 @@
 # Duolingo bot for Telegram
 require_relative 'user'
 
-token = '2005491496:AAE2oTfCH6QiluuevYbJ7CtrLgc9JS6vmzI'
-
 require 'telegram/bot'
 require 'open-uri'
 require 'json'
+require 'dotenv'
+
+Dotenv.load('.env')
+
+token = ENV['TOKEN_TELEGRAM']
 
 def fetch_user(username_recieved)
   url = "https://www.duolingo.com/2017-06-30/users?username=#{username_recieved}"
@@ -20,7 +23,7 @@ puts "Developed by Xillegas"
 
 Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
-    puts "ok"
+    # puts "ok"
     if message.instance_of?(Telegram::Bot::Types::Message) && message.text.instance_of?(String)
       attempt = message.text.split
       if attempt[0] == '/starts'
