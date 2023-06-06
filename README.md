@@ -7,6 +7,7 @@ sdk: docker
 pinned: false
 license: other
 app_file: main.rb
+app_port: 4567
 ---
 
 # DuolingoBot
