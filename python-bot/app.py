@@ -229,7 +229,7 @@ async def crowns_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
 async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Log errors caused by updates."""
-    logger.error(f"Update {update} caused error {context.error}")
+    logger.error(f"An error occurred: {context.error}")
 
 
 def main() -> None:
