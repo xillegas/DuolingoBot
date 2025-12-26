@@ -45,6 +45,19 @@ class DuolingoUser:
         return total
 
 
+def validate_username(username: str) -> bool:
+    """
+    Validate Duolingo username format.
+    
+    Args:
+        username: The username to validate
+        
+    Returns:
+        True if valid, False otherwise
+    """
+    return (3 <= len(username) <= 16) and all(c.isalnum() or c in '._-' for c in username)
+
+
 async def fetch_duolingo_user(username: str) -> Optional[DuolingoUser]:
     """
     Fetch Duolingo user data from the public API.
@@ -70,13 +83,13 @@ async def fetch_duolingo_user(username: str) -> Optional[DuolingoUser]:
             return None
             
     except httpx.HTTPError as e:
-        logger.error(f"HTTP error fetching user {username}: {e}")
+        logger.error(f"HTTP error fetching user: {e}")
         return None
     except json.JSONDecodeError as e:
-        logger.error(f"JSON decode error for user {username}: {e}")
+        logger.error(f"JSON decode error: {e}")
         return None
     except Exception as e:
-        logger.error(f"Unexpected error fetching user {username}: {e}")
+        logger.error(f"Unexpected error fetching user: {e}")
         return None
 
 
@@ -120,8 +133,8 @@ async def xp_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     
     username = context.args[0]
     
-    # Validate username format (3-16 chars, alphanumeric with .-_)
-    if not (3 <= len(username) <= 16) or not all(c.isalnum() or c in '._-' for c in username):
+    # Validate username format
+    if not validate_username(username):
         await update.message.reply_text(
             "Invalid username format. Username must be 3-16 characters "
             "and contain only letters, numbers, dots, dashes, or underscores."
@@ -156,7 +169,7 @@ async def streak_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     username = context.args[0]
     
     # Validate username format
-    if not (3 <= len(username) <= 16) or not all(c.isalnum() or c in '._-' for c in username):
+    if not validate_username(username):
         await update.message.reply_text(
             "Invalid username format. Username must be 3-16 characters "
             "and contain only letters, numbers, dots, dashes, or underscores."
@@ -191,7 +204,7 @@ async def crowns_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     username = context.args[0]
     
     # Validate username format
-    if not (3 <= len(username) <= 16) or not all(c.isalnum() or c in '._-' for c in username):
+    if not validate_username(username):
         await update.message.reply_text(
             "Invalid username format. Username must be 3-16 characters "
             "and contain only letters, numbers, dots, dashes, or underscores."
