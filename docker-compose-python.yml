@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  python-bot:
+    build:
+      context: ./python-bot
+      dockerfile: Dockerfile
+    env_file:
+      - ./python-bot/.env
+    restart: unless-stopped
+    container_name: duolingo-bot-python
